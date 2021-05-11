@@ -1,4 +1,4 @@
-# 推荐-Vue项目目录结构
+# Vue项目目录结构
 
 目录结构保持一致，使得多人合作容易理解与管理，提高工作效率。[Vue标准项目](https://github.com/lq782655835/standard-vue-project)
 
@@ -14,6 +14,7 @@
 * `store` 标准vuex格式，非必须
 
 ## 详细说明
+
 ```
 project
 └───src
