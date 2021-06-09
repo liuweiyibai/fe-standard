@@ -1,13 +1,14 @@
 module.exports = {
   title: '前端开发规范',
-  lang: 'zh-cn',
+  locales: { '/': { lang: 'zh-CN' } },
   description: '收集前后端常见面试题，以及自己学习 vue、react 源码过程的笔记',
-  dest:"dist/",
+  dest: 'dist/',
+  head: [['link', { rel: 'icon', href: 'logo.webp' }]],
   themeConfig: {
-    // repo: 'liuweiyibai/lwyb-interview',
+    repo: 'liuweiyibai/fe-standard',
     docsDir: 'docs',
     editLinks: true,
-    editLinkText: 'Edit this page on GitHub',
+    editLinkText: '在 GitHub 上编辑',
     lastUpdated: '上次更新时间',
     sidebarDepth: 0,
     sidebar: {
