@@ -2,6 +2,7 @@ module.exports = {
   title: '前端开发规范',
   lang: 'zh-cn',
   description: '收集前后端常见面试题，以及自己学习 vue、react 源码过程的笔记',
+  dest:"dist/",
   themeConfig: {
     // repo: 'liuweiyibai/lwyb-interview',
     docsDir: 'docs',

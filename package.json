@@ -10,6 +10,6 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "gh":"npx gh-pages -d ./docs/.vuepress/dist"
+    "gh":"npx gh-pages -d ./dist"
   }
 }
