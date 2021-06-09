@@ -33,6 +33,7 @@ function getGuideSidebar() {
         ['/vue-project-structure', 'vue 项目目录结构'],
         ['/vue-router', 'vue 路由'],
         ['/clean-code-javascript', 'js 风格指南'],
+        ['/nuxt', 'nuxt 技术方案'],
       ],
     },
   ];
