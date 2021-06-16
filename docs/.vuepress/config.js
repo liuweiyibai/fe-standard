@@ -1,21 +1,51 @@
-module.exports = {
+const { config } = require('vuepress-theme-hope');
+
+module.exports = config({
   title: '前端开发规范',
-  locales: { '/': { lang: 'zh-CN' } },
-  description: '收集前后端常见面试题，以及自己学习 vue、react 源码过程的笔记',
+  description: '前端常见开发规范，技术架构指南',
   dest: 'dist/',
-  head: [['link', { rel: 'icon', href: 'logo.webp' }]],
+  head: [
+    ['link', { rel: 'icon', href: 'logo.webp' }],
+    ['link', { rel: 'stylesheet', href: '/css/style.css' }],
+    ['script', { charset: 'utf-8', src: '/js/main.js' }],
+  ],
+  markdown: {
+    lineNumbers: true,
+  },
+  locales: { '/': { lang: 'zh-CN' } },
   themeConfig: {
     repo: 'liuweiyibai/fe-standard',
     docsDir: 'docs',
+    // logo: 'logo.webp',
     editLinks: true,
     editLinkText: '在 GitHub 上编辑',
     lastUpdated: '上次更新时间',
+    smoothScroll: true,
     sidebarDepth: 0,
     sidebar: {
       '/': getGuideSidebar(),
     },
+    baseLang: 'zh-CN',
+    author: 'liuweiyibai',
+    darkmode: 'disable',
+    themeColor: false,
+    blog: false,
+    pageInfo: false,
+    mdEnhance: {
+      enableAll: false,
+    },
+    comment: false,
+    copyright: false,
+    pwa: false,
+    seo: false,
+    sitemap: false,
+    copyCode: false,
+    photoSwipe: false,
+    breadcrumb: false,
   },
-};
+
+  // plugins: ['one-click-copy']
+});
 
 function getGuideSidebar() {
   return [
