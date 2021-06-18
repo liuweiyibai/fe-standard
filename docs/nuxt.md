@@ -119,8 +119,7 @@
 
 1. 省市区选择组件
 
-   整个落地页在在最外层定一个弹窗和
-
+   省市区分为归属地和收货地，并且二者被选择的先后顺序不确定，需要考虑到选择结束后默认参数赋值的情况
    入参 props
 
    ```js
@@ -128,7 +127,7 @@
      props: {
        defaultAddress: {
          type: Object,
-         // 如果第一次选择则为 null，需要判断为非null
+         // 如果第一次选择则为 null，需要判断为非 null
          default: {
            province: {
              code: 100100,
@@ -149,7 +148,7 @@
      cardType: String,
 
      // 是否是收货地址
-     isPostCode: [String, Number],
+     isPostCode: Boolean,
    };
    ```
 
@@ -216,3 +215,39 @@
 ## 部署相关
 
 落地页 nginx 负载多个 pm2 节点, ssr 服务反代到后端接口 nginx 负载到各个后端接口服务
+
+docker?
+
+```dockerfile
+FROM node:alpine
+
+WORKDIR /app
+
+RUN npm i -g pm2
+RUN npm i yarn -g
+
+COPY ./package*.json ./
+
+RUN yarn install \
+  --prefer-offline \
+  --frozen-lockfile \
+  --non-interactive \
+  --production=false
+
+# Build app
+RUN yarn run build
+
+RUN rm -rf node_modules && \
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
+
+
+EXPOSE 3000
+
+USER node
+
+CMD [ "pm2-runtime", "start", "npm", "--", "start" ]
+```
